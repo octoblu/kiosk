@@ -10,3 +10,8 @@ body {
   background-color: #555;
   color: #eee;
 }
+
+a, a:visited, a:active, a:hover {
+  color: #eee;
+  text-decoration: none;
+}

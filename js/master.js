@@ -5,7 +5,8 @@ $(document).ready(function(){
     data.type = 'octoblu:kiosk';
     data.discoverWhitelist = [data.uuid];
     conn.update(data);
-    $('.save-url').text('https://kiosk.octoblu.com/' + data.uuid + '/' + data.token);
+    var url = 'https://kiosk.octoblu.com/kiosk.html#!' + data.uuid + '/' + data.token;
+    $('.save-url').html('<a href='+url+'>'+url+'</a>');
     conn.on('error', console.log);
   });
 })
