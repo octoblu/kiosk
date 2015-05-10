@@ -1,0 +1,13 @@
+language: shell
+deploy:
+- provider: s3
+  access_key_id: AKIAIT4X4NDGM2WVL6VA
+  secret_access_key: &1
+    secure: "IerUQVxFDwIGSV8X1NmCVMPRO/4hUTvq6iSioSk4FUK4MIeLtY2668IyN6mxAuYVCA40pfHli2GvLWg+EkjqVAFEukLEcgWna/Usv3J/8W5FuYBJiEgSVEGZPs2S7ml4dr4hYtXZhO12jdNY84u4P90w4MhUZacFc0KeLZT5FmtSZyXAmonAhTXLAY6c+TOOf3SvWUFn+slZYLN77EdVuKNfczpm7TPtAq0f+PJ3gLeuFInRq7KeqD9iU15jKqB6FqOn0FTV4CW9aniSbdqLeW86PeCENf0Qvzr1DLiuOs9K3eVexlDmNdy9Mlb7yjHwlNbdaCSKxty5JxxLiPv43THDdCwjPHyKGYUr+zXU7yvzAPa9zTopFthZpmw5uN8n1PBZHv9X1QtZF6ubSVDMsGWErZSLXkY7A9LJNuCUG0mF9IGrUDtFfDSWRbLD9/Lc30mnRIKE51xGlS2tK10sC0VL5hPauFm+d19U7JlAgEhDJEA4iM++Z8Pgj4yjh4V5H0kXTmNuQguTOcz+c88crFT26vSqiEdXoQAssqNqcIdLZnVoAfMIjhMC7Cn/sKjG+dzaigpZkJGMM/y+L5etdGzyAweIxsWPrkG3Mhh3OC0pGsjm2kRZRqH9vRI8mfL/ewRudczK7NR9goR0eSuNDQkPvDjNrgZOhVDiie0zBDw="
+  local_dir: site
+  skip_cleanup: true
+  bucket: kiosk.octoblu.com
+  endpoint: kiosk.octoblu.com.s3-website-us-west-2.amazonaws.com
+  region: us-west-2
+  on:
+    branch: master
