@@ -1,0 +1,12 @@
+@font-face {
+  font-family: citrix-sans;
+  src: url(//s3.amazonaws.com/citrix-cdn/can.cdn/marketing/assets/fonts/citrix-sans/citrixsans-regular.woff);
+}
+
+body {
+  display: flex;
+  font-family: citrix-sans;
+  justify-content: center;
+  background-color: #555;
+  color: #eee;
+}
