@@ -2,7 +2,7 @@ $(document).ready(function(){
   var conn = meshblu.createConnection({});
   conn.on('ready', function(data){
     console.log('Ready', data);
-    data.type = 'octoblu:kiosk';
+    data.type = 'device:kiosk';
     data.discoverWhitelist = [data.uuid];
     conn.update(data);
     var url = 'https://kiosk.octoblu.com/kiosk.html#!' + data.uuid + '/' + data.token;
