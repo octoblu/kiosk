@@ -7,6 +7,33 @@
     <script src="js/master.js"></script>
   </head>
   <body>
-    <h1 class="save-url"><h1>
+    <div class="container">
+      <img src="http://ds78apnml6was.cloudfront.net/device/kiosk.svg" class="header-img">
+      <h1>Kiosk powered by Meshblu</h1>
+      <h3 class="save-url">...</h3>
+      <h4 class="info">Go to <a href="http://app.octoblu.com">http://app.octoblu.com</a> to claim this device.</h4>
+      <div class="examples">
+        <p>In order to change the url, send this device a message format like this.</p>
+        <div class="code">
+          {
+            "devices": ["<span class="save-uuid">...</span>"],
+            "url": "https://google.com"
+          }
+        </div>
+        <br>
+        OR
+        <br>
+        <br>
+        <div class="code">
+          {
+            "devices": ["<span class="save-uuid">...</span>"],
+            "payload":{
+              "url": "https://google.com"
+            }
+          }
+        </div>
+        <br>
+      </div>
+    </div>
   </body>
 </html>

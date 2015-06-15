@@ -8,6 +8,11 @@ var connection = meshblu.createConnection({
 connection.on('ready', function(data){
   console.log('ready');
   connection.on('message', function(message){
+    var url = message.url;
+    if(!url){
+      var payload = message.payload || {};
+      url = payload.url;
+    }
     $('iframe').attr('src', message.url);
   });
 });

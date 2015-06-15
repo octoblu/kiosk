@@ -7,11 +7,34 @@ body {
   display: flex;
   font-family: citrix-sans;
   justify-content: center;
-  background-color: #555;
-  color: #eee;
+  background-color: #fff;
+  color: #676767;
 }
 
 a, a:visited, a:active, a:hover {
-  color: #eee;
+  color: #676767;
   text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.header-img {
+  width: 50%;
+  height: 50%;
+  max-width: 350px;
+  max-height: 350px;
+  margin: 0 auto;
+}
+
+.examples {
+  margin-top: 100px;
+}
+
+.examples .code {
+  /* text-align: left; */
+  color: black;
 }
