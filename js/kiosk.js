@@ -13,6 +13,7 @@ connection.on('ready', function(data){
       var payload = message.payload || {};
       url = payload.url;
     }
-    $('iframe').attr('src', message.url);
+    console.log('Opening URL', url, message);
+    $('iframe').attr('src', url);
   });
 });
