@@ -7,7 +7,8 @@ $(document).ready(function(){
     conn.update(data);
     var baseUrl = location.protocol + "//" + location.host;
     var url = baseUrl + '/kiosk.html#!' + data.uuid + '/' + data.token;
-    $('.save-uuid').text(data.uuid)
+    $('.save-uuid').text(data.uuid);
+    $('.save-token').text(data.token);
     $('.save-url').html('<a href="'+url+'">'+url+'</a>');
     conn.on('error', console.log);
   });

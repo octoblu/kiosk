@@ -38,3 +38,8 @@ a, a:visited, a:active, a:hover {
   /* text-align: left; */
   color: black;
 }
+.kiosk-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
