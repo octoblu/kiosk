@@ -6,40 +6,71 @@
 body {
   display: flex;
   font-family: citrix-sans;
-  justify-content: center;
   background-color: #fff;
   color: #676767;
 }
 
-a, a:visited, a:active, a:hover {
+a, a:visited, a:active {
   color: #676767;
   text-decoration: none;
 }
 
+a:hover {
+  background-color: #DADADA;
+}
+
 .container {
-  width: 100%;
+  width: 80%;
   height: 100%;
   text-align: center;
+  margin: 0 auto;
 }
 
 .header-img {
   width: 50%;
   height: 50%;
-  max-width: 350px;
-  max-height: 350px;
+  max-width: 300px;
+  max-height: 300px;
   margin: 0 auto;
 }
 
-.examples {
-  margin-top: 100px;
+.claim-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border: 1px solid #333;
+  width: 50%;
+  border-radius: 20px;
 }
 
-.examples .code {
-  /* text-align: left; */
+.claim-button:hover {
+  background-color: #DADADA;
+}
+
+.example-code {
   color: black;
+}
+.examples {
+  padding: 5px;
 }
 .kiosk-info {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+.or-text {
+  padding: 10px 0;
+}
+.step-container {
+  display: flex;
+}
+.step-number {
+  flex: 1;
+  border-right: 1px solid #333;
+}
+
+.step-content {
+  flex: 2;
+  padding: 0 50px;
 }

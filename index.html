@@ -21,32 +21,46 @@
           <h3 class="save-token">...</h3>
         </div>
       </div>
-      <div class="kiosk-url">
-        <h3>Kiosk URL</h3>
-        <h3 class="save-url">...</h3>
+      <div class="step-container">
+        <h2 class="step-number">Step 1</h2>
+        <div class="step-content">
+          <a class="claim-button" href="https://app.octoblu.com/node-wizard/add-device/557efb9a2c221fe2d1f01d17">
+            <h3>Claim The Kiosk Device On Octoblu</h2>
+          </a>
+          <p>Copy the uuid and token and claim as existing device</p>
+        </div>
       </div>
-      <h4 class="info">Go to <a href="http://app.octoblu.com">http://app.octoblu.com</a> to claim this device.</h4>
-      <div class="examples">
-        <p>In order to change the url, send this device a message format like this.</p>
-        <div class="code">
-          {
-            "devices": ["<span class="save-uuid">...</span>"],
-            "url": "https://www.octoblu.com"
-          }
+      <div class="step-container">
+        <h2 class="step-number">Step 2</h2>
+        <div class="kiosk-url step-content">
+          <h3>Navigate To Your Kiosk</h3>
+          <h3 class="save-url">...</h3>
         </div>
-        <br>
-        OR
-        <br>
-        <br>
-        <div class="code">
-          {
-            "devices": ["<span class="save-uuid">...</span>"],
-            "payload":{
-              "url": "https://www.octoblu.com"
-            }
-          }
+      </div>
+      <div class="step-container">
+        <h2 class="step-number">Step 3</h2>
+        <div class="step-content">
+          <div class="examples">
+            <p>In order to change the url, send this device a message format like this.</p>
+            <div class="example-code">
+              {
+                "devices": ["<span class="save-uuid">...</span>"],
+                "url": "https://www.octoblu.com"
+              }
+            </div>
+            <span class="or-text">
+              OR
+            </span>
+            <div class="example-code">
+              {
+                "devices": ["<span class="save-uuid">...</span>"],
+                "payload":{
+                  "url": "https://www.octoblu.com"
+                }
+              }
+            </div>
+          </div>
         </div>
-        <br>
       </div>
     </div>
   </body>
