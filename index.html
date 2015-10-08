@@ -59,6 +59,51 @@
                 }
               }
             </div>
+            <br>
+            <br>
+            <br>
+            <p>In order to change the text, send this device a message format like this.</p>
+            <p>You can change the styles by using the textStyles property. It will be passed into <a href="https://api.jquery.com/css/">jQuery CSS</a></p>
+            <div class="example-code">
+              {
+                "devices": ["<span class="save-uuid">...</span>"],
+                "text": "Hello there!",
+                "textStyles": {}
+              }
+            </div>
+            <span class="or-text">
+              OR
+            </span>
+            <div class="example-code">
+              {
+                "devices": ["<span class="save-uuid">...</span>"],
+                "payload":{
+                  "text": "Hello there!",
+                  "textStyles": {}
+                }
+              }
+            </div>
+            <br>
+            <br>
+            <br>
+            <p>In order to change the html, send this device a message format like this.</p>
+            <div class="example-code">
+              {
+                "devices": ["<span class="save-uuid">...</span>"],
+                "html": "&lt;strong&gt;Hello there!&lt;/strong&gt;"
+              }
+            </div>
+            <span class="or-text">
+              OR
+            </span>
+            <div class="example-code">
+              {
+                "devices": ["<span class="save-uuid">...</span>"],
+                "payload":{
+                  "html": "&lt;strong&gt;Hello there!&lt;/strong&gt;"
+                }
+              }
+            </div>
           </div>
         </div>
       </div>
