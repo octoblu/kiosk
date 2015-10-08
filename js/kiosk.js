@@ -44,6 +44,7 @@ function updateKiosk(object){
   $('#text').hide();
   $('#text').empty();
   $('#text').attr('styles', '');
+  $('#text-container').attr('styles', '');
   $('#html').hide();
   $('#html').empty();
 
@@ -61,7 +62,7 @@ function updateKiosk(object){
     $('#default-page').hide();
     $('#text').show();
     $('#text').text(object.text);
-    $('#text').css(object.textStyles);
+    $('#text-container').css(object.textStyles);
     return;
   }
 
