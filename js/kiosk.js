@@ -5,8 +5,7 @@ var connection = meshblu.createConnection({
   token: location.hash.substring(2).split('/')[1]
 });
 
-var currentUrl, currentText, currentHTML;
-
+var currentUrl;
 
 connection.on('ready', function(data){
   console.log('ready');
@@ -56,9 +55,8 @@ function updateKiosk(object){
     return;
   }
 
-  if(object.text && currentText !== object.text){
+  if(object.text){
     console.log('Showing Text', object.text, object.textStyles);
-    currentText = object.text;
     $('#default-page').hide();
     $('#text').show();
     $('#text').text(object.text);
@@ -66,9 +64,8 @@ function updateKiosk(object){
     return;
   }
 
-  if(object.html && currentHTML !== object.html){
+  if(object.html){
     console.log('Showing HTML', object.html);
-    currentHTML = object.html;
     $('#default-page').hide();
     $('#html').show();
     $('#html').html(object.html);
