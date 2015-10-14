@@ -1,0 +1,48 @@
+{
+  "name": "kiosk",
+  "version": "1.0.0",
+  "description": "Octoblu Kiosk",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline-hot --content-base dist/",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/octoblu/kiosk"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/octoblu/kiosk/issues"
+  },
+  "homepage": "https://github.com/octoblu/kiosk",
+  "dependencies": {
+    "autoprefixer": "^6.0.3",
+    "babel": "^5.8.23",
+    "css-loader": "^0.19.0",
+    "file-loader": "^0.8.4",
+    "history": "^1.12.5",
+    "hjs-webpack": "^2.14.0",
+    "json-loader": "^0.5.3",
+    "lodash": "^3.10.1",
+    "meshblu": "^1.30.0",
+    "postcss-loader": "^0.6.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-hot-loader": "^1.3.0",
+    "react-router": "^1.0.0-rc3",
+    "style-loader": "^0.12.4",
+    "stylus-loader": "^1.4.0",
+    "url-loader": "^0.5.6",
+    "yeticss": "^7.0.5"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "bundle-loader": "^0.5.4",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  }
+}
