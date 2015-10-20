@@ -39,11 +39,11 @@ function getProperty(message, key){
 
 function updateKiosk(object){
   object = object || {};
-  object.textStyles = {};
   $('#text').hide();
   $('#text').empty();
   $('#text').attr('styles', '');
-  $('#text-container').attr('styles', '');
+  $('#text-container').attr('style', '');
+  $('#text-container').css({});
   $('#html').hide();
   $('#html').empty();
 
@@ -56,11 +56,20 @@ function updateKiosk(object){
   }
 
   if(object.text){
-    console.log('Showing Text', object.text, object.textStyles);
+    console.log('Showing Text', object.text, 'with styles', object.textStyles);
     $('#default-page').hide();
     $('#text').show();
     $('#text').text(object.text);
-    $('#text-container').css(object.textStyles);
+
+    if (!object.textStyles) return;
+
+    if (typeof object.textStyles === 'string') {
+      $('#text-container').attr('style', object.textStyles);
+    }
+    else if (typeof object.textStyles === 'object') {
+      $('#text-container').css(object.textStyles);
+    }
+
     return;
   }
 
