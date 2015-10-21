@@ -7,16 +7,15 @@
   </head>
   <body>
     <div class="full-container">
-      <div id="text-container">
-        <div id="text"></div>
-        <div id="html"></div>
+      <div id="loading-indicator">
+        <img src="http://ds78apnml6was.cloudfront.net/device/kiosk.svg" class="header-img">
+        <h1>Loading...</h1>
       </div>
-      <div class="container">
-        <div id="default-page">
-          <img src="http://ds78apnml6was.cloudfront.net/device/kiosk.svg" class="header-img">
-          <h1>Loading...</h1>
-        </div>
-        <iframe id="#iframe"></iframe>
+
+      <div id="kiosk-elements">
+        <div id="text" class="kiosk-element kiosk-element--text"></div>
+        <div id="html" class="kiosk-element kiosk-element--text"></div>
+        <iframe id="iframe" class="kiosk-element"></iframe>
       </div>
     </div>
 

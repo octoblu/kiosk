@@ -39,45 +39,82 @@ function getProperty(message, key){
 
 function updateKiosk(object){
   object = object || {};
-  $('#text').hide();
-  $('#text').empty();
-  $('#text').attr('styles', '');
-  $('#text-container').attr('style', '');
-  $('#text-container').css({});
-  $('#html').hide();
-  $('#html').empty();
+  resetKioskElements();
 
   if(object.url && currentUrl !== object.url){
     console.log('Opening URL', object.url);
     currentUrl = object.url;
-    $('#default-page').hide();
-    $('#iframe').attr('src', object.url);
+
+    prepStageForRender();
+    renderIframe(object.url);
+
     return;
   }
 
   if(object.text){
     console.log('Showing Text', object.text, 'with styles', object.textStyles);
-    $('#default-page').hide();
-    $('#text').show();
-    $('#text').text(object.text);
 
-    if (!object.textStyles) return;
-
-    if (typeof object.textStyles === 'string') {
-      $('#text-container').attr('style', object.textStyles);
-    }
-    else if (typeof object.textStyles === 'object') {
-      $('#text-container').css(object.textStyles);
-    }
+    prepStageForRender();
+    renderText(object.text);
+    updateStyles(object.textStyles);
 
     return;
   }
 
   if(object.html){
     console.log('Showing HTML', object.html);
-    $('#default-page').hide();
-    $('#html').show();
-    $('#html').html(object.html);
+
+    prepStageForRender();
+    renderHtml(object.html);
+    updateStyles(object.textStyles);
+
     return;
   }
+}
+
+function prepStageForRender() {
+  $('#loading-indicator').hide();
+  $('#kiosk-elements').show();
+}
+
+function renderText(text) {
+  $('#text')
+    .show()
+    .text(text);
+}
+
+function renderIframe(url) {
+  $('#iframe')
+    .attr('src', url)
+    .show();
+}
+
+function renderHtml(html) {
+  $('#html')
+    .html(html)
+    .show();
+}
+
+function updateStyles(styles) {
+  if (!styles) return;
+
+  if (typeof styles === 'string') {
+    $('#kiosk-elements').attr('style', styles);
+    return;
+  }
+
+  if (typeof styles === 'object') {
+    $('#kiosk-elements').css(styles);
+  }
+}
+
+function resetKioskElements() {
+  console.log('Reseting Kiosk Elements');
+  $('.kiosk-element')
+    .hide()
+    .empty();
+
+  $('#kiosk-elements')
+    .attr('style', '')
+    .css({});
 }

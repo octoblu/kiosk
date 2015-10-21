@@ -7,13 +7,21 @@ iframe {
   margin: 0;
   border: none;
 }
-#text-container {
+
+#kiosk-elements {
   display: inline-flex;
   height: 100%;
   width: 100%;
 }
+
 #text {
-  width: 100%;
-  margin: auto;
   margin: auto 0;
+}
+
+.kiosk-element--text {
+  width: 100%;
+}
+
+.kiosk-element {
+  display: none;
 }
