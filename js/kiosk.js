@@ -7,18 +7,9 @@ var connection = meshblu.createConnection({
 
 var currentUrl;
 
-connection.on('ready', function(data){
+connection.once('ready', function(data){
   console.log('ready');
   $('#text').fitText();
-
-  connection.on('message', function(message){
-    var object = {};
-    object.url = getProperty(message, 'url');
-    object.text = getProperty(message, 'text');
-    object.textStyles = getProperty(message, 'textStyles');
-    object.html = getProperty(message, 'html');
-    updateKiosk(object);
-  });
   connection.whoami({}, function(result){
     result = result || {};
     if(result.error){
@@ -26,6 +17,15 @@ connection.on('ready', function(data){
     }
     updateKiosk(result);
   });
+});
+
+connection.on('message', function(message){
+  var object = {};
+  object.url = getProperty(message, 'url');
+  object.text = getProperty(message, 'text');
+  object.textStyles = getProperty(message, 'textStyles');
+  object.html = getProperty(message, 'html');
+  updateKiosk(object);
 });
 
 function getProperty(message, key){
