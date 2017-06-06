@@ -2,6 +2,11 @@ $(document).ready(function(){
   var conn = meshblu.createConnection({});
   conn.on('ready', function(data){
     console.log('Ready', data);
+
+    var baseUrl = location.protocol + "//" + location.host;
+    var url = baseUrl + '/kiosk.html#!' + data.uuid + '/' + data.token;
+    var claimUrl = "https://app.octoblu.com/node-wizard/claim/" + data.uuid + "/" + data.token;
+
     data.type = 'device:kiosk';
     data.discoverWhitelist = [data.uuid];
     data.messageSchema = {
@@ -25,9 +30,17 @@ $(document).ready(function(){
         }
       }
     };
+    data.octoblu = {
+      "links": [
+        {
+          "title": "View Kiosk",
+          "url": url
+        }
+      ]
+    };
     conn.update(data);
-    var baseUrl = location.protocol + "//" + location.host;
-    var url = baseUrl + '/kiosk.html#!' + data.uuid + '/' + data.token;
+
+    $('.claim-button').attr("href", claimUrl);
     $('.save-uuid').text(data.uuid);
     $('.save-token').text(data.token);
     $('.save-url').html('<a href="'+url+'">'+url+'</a>');

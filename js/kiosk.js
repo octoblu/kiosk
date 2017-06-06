@@ -39,9 +39,9 @@ function getProperty(message, key){
 
 function updateKiosk(object){
   object = object || {};
-  resetKioskElements();
 
   if(object.url && currentUrl !== object.url){
+    resetKioskElements();
     console.log('Opening URL', object.url);
     currentUrl = object.url;
 
@@ -49,9 +49,8 @@ function updateKiosk(object){
     renderIframe(object.url);
 
     return;
-  }
-
-  if(object.text){
+  } else if(object.text){
+    resetKioskElements();
     console.log('Showing Text', object.text, 'with styles', object.textStyles);
 
     prepStageForRender();
@@ -59,15 +58,16 @@ function updateKiosk(object){
     updateStyles(object.textStyles);
 
     return;
-  }
-
-  if(object.html){
+  } else if(object.html){
+    resetKioskElements();
     console.log('Showing HTML', object.html);
 
     prepStageForRender();
     renderHtml(object.html);
     updateStyles(object.textStyles);
 
+    return;
+  } else {
     return;
   }
 }
@@ -110,6 +110,7 @@ function updateStyles(styles) {
 
 function resetKioskElements() {
   console.log('Reseting Kiosk Elements');
+  currentUrl = null;
   $('.kiosk-element')
     .hide()
     .empty();
