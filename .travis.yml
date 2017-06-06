@@ -1,11 +1,29 @@
-language: shell
+language: node_js
+node_js:
+- '5'
+branches:
+  only:
+  - /^v[0-9]/
+env:
+  global: CDN=https://kiosk-static.octoblu.com
+after_success:
+- npm run coverage
+- npm run mocha:json
+- bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.octoblu.com/bash)
+before_deploy:
+- npm run build
+- export PKG_VERSION="$(node -e 'console.log(require("./package.json").version)')"
+- if [ -z "$PKG_VERSION" ]; then echo 'Missing PKG_VERSION env' && exit 1; fi
+- mkdir -p dpl_assets/v$PKG_VERSION
+- cp -r dist/* dpl_assets/v$PKG_VERSION
 deploy:
 - provider: s3
-  access_key_id: AKIAJH2D5IPIRHYJT5IA
-  secret_access_key: &1
-    secure: "kYYVyjmx7d5JI7MMPWeVtFaa/DYOYWt4T0XKENW7RBik0jlpAyq7ux9OqieBufXak29LdWI7sSdB8Y/QrJEBwNB4RWXwySenwW2VApYnbjPNJboAqhTwKYUvRReZCmuUvhs3fcMwP6Xqy05nkOW20kkZDV62b0C6V4iirAsIvlkubwZCFod+vWCX8krc6eDQjQy/1kN/b+NMKo8YGWEidw4QvI4LuXeUD3DyzaEOGvuXSAfxBEyiP6mf+gU8223BncR4ga0duUaG4Kp7hcVUGiwYUNXes5SKJ0hnfEtyAfwp7X6yiLbe0LyQMfFei6H8AAYtyNng0ZW9FlZeJCzO5GaktcAsJO97/pvOA2qjyRtNQZ+uj5sfGh/f4e8zW6+usqGh8lV83vPnh0Klh5neWEgEnvw8jkNO/s5vjMMvfNuPfHbAD7dFezTWJlBTeWgzZvk5EpAg+O50chMKVHi4ICdz47kICRh5I6gXMigeI+7gEO4BRaPrKp/8AVKN7O3YUjBGg9HeLIwggB3F/AlFm8KqO7f4W6t6VlXJ7amuGV5mIVyRMTDNbAQRFsVR47PGMLZ1M/idyyWJBBPDOLIZVkdR5uuu8HE57SKijtBkpgXrkgbMit8xhtmLn0XlpoEgUMAMBqNuibWvpoloM1oMPydMCqWUw/b87JYO/Y1NzBQ="
-  bucket: kiosk.octoblu.com
-  endpoint: kiosk.octoblu.com.s3-website-us-west-2.amazonaws.com
+  access_key_id: # access key id
+  secret_access_key: # make sure its secure
+  bucket: kiosk-static.octoblu.com
+  local_dir: dpl_assets
+  skip_cleanup: true
   region: us-west-2
   on:
-    branch: master
+    tags: true
